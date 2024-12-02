@@ -1,0 +1,63 @@
+.student-card{
+    height: 18rem;
+    width: 22rem;
+    /* border: 1px solid gray; */
+    border-radius: 1rem;
+    cursor: pointer;
+    box-shadow: 0 0 25px rgba(165, 158, 158, 0.24);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    line-height: 1.5;
+}
+.student-card:hover{
+    border: 1px solid gray;
+}
+
+.activity-status-icon{
+    position: absolute;
+    right: 0.5rem;
+    top: 0.7rem;
+}
+.activity-status-icon#inactive{
+    color: gray;
+}
+.activity-status-icon#active{
+    color: green;
+}
+.student-card .header{
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+}
+.student-card .header img{
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    background-color: white;
+    border: 1px solid gray;
+}
+.student-card .header p{
+    font-size: 1.2rem;
+}
+.student-card .body{
+    width: 100%;
+}
+
+.student-card .footer{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+.student-card .footer button:nth-child(1){
+    background-color:rgb(179, 46, 46);
+    color: white;
+}
+.student-card .footer:nth-child(2){
+}

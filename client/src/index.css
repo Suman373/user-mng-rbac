@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,*::before,*::after{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background-color: white;
+  /* --background-color:black; */
+  --glass: #f3f3f35b;
+  --brand:#29a6b4;
+}
+
+body{
+  font-family: sans-serif;
+  overflow-x: hidden;
+}
