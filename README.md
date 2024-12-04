@@ -25,6 +25,7 @@
 - Create a new role
 - Edit Permissions for the given roles. Permissions include read, write and delete.
 - Backend server and REST API endpoints
+- Exception error handling and global state management.
   
 ## Run Locally
 
