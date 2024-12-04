@@ -7,7 +7,7 @@ export const getRoles = async () => {
         if (data.status !== 200) {
             throw new Error("Failed to fetch roles");
         }
-        console.log(data?.data?.message || "Fetched roles");
+        // console.log(data?.data?.message || "Fetched roles");
         return data?.data?.result;
     } catch (error) {
         console.log(error);

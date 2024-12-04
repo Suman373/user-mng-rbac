@@ -30,7 +30,7 @@ const AddUser = () => {
                 alert("Fill all required details");
                 return;
             }
-            console.log(name,email,status,role);
+            // console.log(name,email,status,role);
             const data = await UserApi.addUser({name,email,status,role});
             navigate('/');
             

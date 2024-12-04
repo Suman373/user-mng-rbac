@@ -15,7 +15,7 @@ export const UserProvider = ({ children }) => {
     const fetchUsers = async()=>{
         try {
             const data = await UserApi.getUsers();
-            console.log("Data inside context",data);
+            // console.log("Data inside context",data);
             setTimeout(()=>{
                 setUsers(data);
                 setUserLoading(false);

@@ -7,7 +7,7 @@ export const getUsers = async () => {
         if (data.status !== 200) {
             throw new Error("Failed to fetch users");
         }
-        console.log(data?.data?.message || "Fetched users");
+        // console.log(data?.data?.message || "Fetched users");
         return data?.data?.result;
     } catch (error) {
         console.log(error);
@@ -25,7 +25,7 @@ export const addUser = async (payload) => {
         if (data.status !== 201) {
             throw new Error("Failed to create user");
         }
-        console.log(data?.data?.message || "Created user");
+        // console.log(data?.data?.message || "Created user");
         return data?.data?.result;
     } catch (error) {
         console.log(error);
