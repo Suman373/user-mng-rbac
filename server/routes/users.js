@@ -29,7 +29,7 @@ router.post('/', async(req,res)=>{
         const hashedPass = await bcrypt.hash(password, salt);
         const user = await UserModel.create({name,email,status,role,password:hashedPass});
         if(!user) throw new Error("Failed to create user");
-        res.status(200).json({message:"Created user", result: user});
+        res.status(201).json({message:"Created user", result: user});
     } catch (error) {
         console.log(error);
         res.status(500).json({message: error.message});

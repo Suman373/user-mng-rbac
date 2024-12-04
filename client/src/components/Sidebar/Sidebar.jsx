@@ -5,7 +5,7 @@ const Sidebar = () => {
   return (
     <div className="w-64 min-h-screen bg-gray-800 text-white p-4">
       <div className="text-xl font-semibold mb-8 p-2">
-        <Link to="/" className='font-sans font-bold text-blue-300'>RBAC Dashboard</Link>
+        <Link to="/" className='font-sans font-bold text-blue-300'>RBAC UI</Link>
       </div>
       <ul className="space-y-4">
         <li>

@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Sidebar from '../../components/Sidebar/Sidebar';
+import { RoleApi, UserApi } from '../../api';
 
 const AddUser = () => {
 
@@ -8,19 +9,41 @@ const AddUser = () => {
     // component states
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    const [role, setRole] = useState('User');
-    const [status, setStatus] = useState('Active');
+    const [role, setRole] = useState('');
+    const [status, setStatus] = useState('');
+    const [roles, setRoles] = useState([]);
+
+    const fetchRoles = async()=>{
+        try {
+            const data = await RoleApi.getRoles();
+            setRoles(data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     // form submission
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
-        if(!name || !email){
-            alert("Name and email is required");
-            return;
+        try {
+            if(!name || !email || !status || !role){
+                alert("Fill all required details");
+                return;
+            }
+            console.log(name,email,status,role);
+            const data = await UserApi.addUser({name,email,status,role});
+            navigate('/');
+            
+        } catch (error) {
+            console.log(error);
+            alert("Failed to add user");
         }
-        console.log('User Data Submitted:', { name, email, role, status });
-        navigate('/');
     };
+
+    useEffect(()=>{
+        fetchRoles();
+    },[]);
+
 
     return (
         <div className="flex bg-gray-100">
@@ -60,10 +83,12 @@ const AddUser = () => {
                             value={role}
                             onChange={(e) => setRole(e.target.value)}
                             className="mt-1 p-2 border rounded-md"
+                            required
                         >
-                            <option value="User">User</option>
-                            <option value="Admin">Admin</option>
-                            <option value="Manager">Manager</option>
+                            <option value="" disabled >Select a role</option>
+                            {
+                                roles?.map((item,index)=> <option value={item._id} key={index}>{item?.name}</option>)
+                            }
                         </select>
                     </div>
 
@@ -75,9 +100,11 @@ const AddUser = () => {
                             value={status}
                             onChange={(e) => setStatus(e.target.value)}
                             className="mt-1 p-2 border rounded-md"
+                            required
                         >
-                            <option value="Active">Active</option>
-                            <option value="Inactive">Inactive</option>
+                            <option value=""disabled>Select status</option>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
                         </select>
                     </div>
 
@@ -98,7 +125,7 @@ const AddUser = () => {
 const FormLabel = ({ text }) => {
     return (
         <label className="text-md font-medium text-gray-700">
-            {text || "<Label>"}
+            {text || "<Label>"} <span className='text-red-500'>*</span>
         </label>
     )
 }

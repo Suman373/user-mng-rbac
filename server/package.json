@@ -1,6 +1,6 @@
 {
-  "name": "vrv-sec-server",
-  "version": "1.0.0",
+  "name": "rbac-ui-server",
+  "version": "1.0.1",
   "description": "server for rbac",
   "main": "index.js",
   "scripts": {

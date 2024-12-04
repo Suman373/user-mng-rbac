@@ -1,6 +1,10 @@
 footer{
     text-align: center;
-    background-color: var(--brand);
+    background-color: #1f2937;
     color: white;
     padding:0.7rem 1rem;
+    border-top: 1px solid white;
+}
+footer p a{
+    color: var(--brand);
 }
